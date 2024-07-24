@@ -1,0 +1,7 @@
+・Models.pyはデータベースを扱うpythonフォルダ。DBのテーブル、カラム作成が可能
+
+・Djangoのmigrationコマンド
+python manage.py makemigration
+
+・DjangoでDBを作成する
+python manage.py migration

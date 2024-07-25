@@ -1,6 +1,6 @@
 # views.py->読み込むフォルダやデータ処理などを実装する
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from .models import todoModel
 from django.urls import reverse_lazy
 
@@ -28,3 +28,11 @@ class TodoDelete(DeleteView):
     template_name = 'delete.html'
     model = todoModel
     success_url = reverse_lazy('list')
+
+# Update(データの更新)
+class TodoUpdate(UpdateView):
+    template_name = 'update.html'
+    model = todoModel
+    fields = ('title','memo','priority','duedate')
+    success_url = reverse_lazy('list')
+    # success_url = reverse_lazy('detail')

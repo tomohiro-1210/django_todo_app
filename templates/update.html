@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+    {% block header %}
+    <header class="header w-full  bg-gray-300 border-2 border-gray-600" id="header">
+        <div class="w-3/4 mx-auto">
+            <p class="text-gray-600 text-center font-bold text-3xl pt-8 pb-4">タスクの修正</p>
+            <p class="text-gray-600 text-center font-bold text-xl pb-8">間違ったときは修正！修正しないと・・・</p>
+        </div>
+    </header>
+    {% endblock header %}
+    
+    
+    {% block content %}
+        <form action="" method="post" class="w-full md:w-100 mx-auto py-6 px-4 md:px-8 lg:px-10">
+            {% csrf_token %}
+            {{ form.title }}
+            {{ form.memo }}
+            {{ form.priority}}
+            {{ form.duedate }}
+            
+
+            <input type="submit" value="修正する" class="border-2 border-blue-600 bg-blue-400 hover:bg-blue-500 block w-auto text-base text-white py-3 px-4 mx-auto rounded-xl">
+        </form>
+    {% endblock content %}
+  
+    <footer class="footer w-full h-20 bg-orange-500"></footer>
+  
+  </div>

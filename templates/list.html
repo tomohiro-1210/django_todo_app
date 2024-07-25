@@ -17,9 +17,9 @@
     <div class="w-10/12 md:w-8/12 max-w-100 mx-auto my-4 border-2 border-{{ item.priority }}-600 bg-{{ item.priority }}-400 rounded">
         <div class="block md:flex text-2xl font-bold text-gray-800 p-4">{{ item.title }}<span class="block text-sm ml-0 md:ml-4 mb-2 md:mb-0 text-gray-800">作成日：{{ item.duedate }}</span></div>
         <div class="p-4 flex">
-            <a href="#" class="py-2 px-6 text-base mr-4 text-white bg-blue-500 hover:bg-blue-600 block w-auto rounded">詳細を見る</a>
-            <a href="#" class="py-2 px-6 text-base mr-4 text-white bg-yellow-500 hover:bg-yellow-600 block w-auto rounded">変更する</a>
-            <a href="#" class="py-2 px-6 text-base mr-4 text-white bg-red-500 hover:bg-red-600 block w-auto rounded">削除する</a>
+            <a href="{% url 'detail' item.pk %}" class="py-2 px-6 text-base mr-4 text-white bg-blue-500 hover:bg-blue-600 block w-auto rounded">詳細を見る</a>
+            <a href="{% url 'update' item.pk %}" class="py-2 px-6 text-base mr-4 text-white bg-yellow-500 hover:bg-yellow-600 block w-auto rounded">変更する</a>
+            <a href="{% url 'delete' item.pk %}" class="py-2 px-6 text-base mr-4 text-white bg-red-500 hover:bg-red-600 block w-auto rounded">削除する</a>
         </div>
         
     </div>

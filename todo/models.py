@@ -1,9 +1,12 @@
-
+# models.py->DBのテーブルやカラムを設定する
 from django.db import models
 
 # Create your models here.
 
-CHOICE = (('red','high'),('green','normal'),('blue','low',))
+CHOICE = (('red','high'),
+          ('green','normal'),
+          ('blue','low',)
+          )
 
 class todoModel(models.Model):
     title = models.CharField(max_length=100)

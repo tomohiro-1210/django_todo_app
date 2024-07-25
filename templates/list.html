@@ -1,20 +1,31 @@
+{% extends 'base.html' %}
 
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <div class="w-10/12 max-w-md mx-auto p-2">
-            <ul>
-                {% for post in object_list %}
-                <li class="border-2 border-red-500 bg-red-300 mb-12 p-4">
-                    <p class="text-2xl font-bold text-gray-600 text-left w-3/4 mb-4">{{ post.title }}</p>
-                    <p class="text-sm text-gray-600 text-left w-3/4 ">{{ post.memo }}</p>
-                </li>
-                {% endfor %}
-            </ul>
+<div >
+
+    {% block header %}
+    <header class="header w-full  bg-gray-300 border-2 border-gray-600" id="header">
+        <div class="w-3/4 mx-auto">
+            <p class="text-gray-600 text-center font-bold text-3xl pt-8 pb-4">Todo list</p>
+            <p class="text-gray-600 text-center font-bold text-xl pb-8">毎日のリストを見える化してタスクを消化していこう！</p>
+        </div>
+    </header>
+    {% endblock header %}
+    
+    
+    {% block content %}
+    {% for item in object_list %}
+    <div class="w-1/2 mx-auto my-4 border-2 border-green-600 bg-green-400 rounded">
+        <div class="text-2xl font-bold text-gray-800 p-4">{{ item.title }}</div>
+        <div class="p-4 flex">
+            <a href="#" class="py-2 px-6 text-base mr-4 text-white bg-blue-500 hover:bg-blue-600 block w-auto rounded">詳細を見る</a>
+            <a href="#" class="py-2 px-6 text-base mr-4 text-white bg-yellow-500 hover:bg-yellow-600 block w-auto rounded">変更する</a>
+            <a href="#" class="py-2 px-6 text-base mr-4 text-white bg-red-500 hover:bg-red-600 block w-auto rounded">削除する</a>
+        </div>
+        
     </div>
-</body>
-</html>
+    {% endfor %}
+    {% endblock content %}
+  
+    <footer class="footer w-full h-20 bg-orange-500"></footer>
+  
+  </div>

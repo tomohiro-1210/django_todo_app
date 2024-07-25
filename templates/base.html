@@ -1,0 +1,24 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    {% block header %}
+    <header class="header w-full h-20 bg-red-300" id="header"></header>
+    {% endblock header %}
+    
+
+    {% block content %}
+    <div class="md:flex justify-spacebetween mx-auto w-100">
+        <div class="w-full md:w-1/4 bg-blue-500 h-80"></div>
+        <div class="w-full md;w-3/4 bg-blue-800 h-80"></div>
+    </div>
+    {% endblock content %}
+
+    {% block footer %}
+    <footer class="footer w-full h-20 bg-orange-500"></footer>
+    {% endblock footer %}
+</body>
+</html>

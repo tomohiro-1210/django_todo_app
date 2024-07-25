@@ -5,7 +5,7 @@
     {% block header %}
     <header class="header w-full  bg-gray-300 border-2 border-gray-600" id="header">
         <div class="w-3/4 mx-auto">
-            <p class="text-gray-600 text-center font-bold text-3xl pt-8 pb-4">Todo list</p>
+            <h1 class="text-gray-600 text-center font-bold text-3xl pt-8 pb-4">Todo list</h1>
             <p class="text-gray-600 text-center font-bold text-xl pb-8">毎日のリストを見える化してタスクを消化していこう！</p>
         </div>
     </header>
@@ -13,17 +13,21 @@
     
     
     {% block content %}
-    {% for item in object_list %}
-    <div class="w-10/12 md:w-8/12 max-w-100 mx-auto my-4 border-2 border-{{ item.priority }}-600 bg-{{ item.priority }}-400 rounded">
-        <div class="block md:flex text-2xl font-bold text-gray-800 p-4">{{ item.title }}<span class="block text-sm ml-0 md:ml-4 mb-2 md:mb-0 text-gray-800">作成日：{{ item.duedate }}</span></div>
-        <div class="p-4 flex">
-            <a href="{% url 'detail' item.pk %}" class="py-2 px-6 text-base mr-4 text-white bg-blue-500 hover:bg-blue-600 block w-auto rounded">詳細を見る</a>
-            <a href="{% url 'update' item.pk %}" class="py-2 px-6 text-base mr-4 text-white bg-yellow-500 hover:bg-yellow-600 block w-auto rounded">変更する</a>
-            <a href="{% url 'delete' item.pk %}" class="py-2 px-6 text-base mr-4 text-white bg-red-500 hover:bg-red-600 block w-auto rounded">削除する</a>
-        </div>
+    <div class="w-10/12 md:w-8/12 max-w-100 mx-auto">
+        {% comment %} 新規登録 {% endcomment %}
+        <a href="{% url 'create' %}" class="inline-block py-2 px-6 text-base text-white mt-4 w-auto bg-gray-500 hover:bg-gray-600 block w-auto rounded">タスク新規作成</a>
         
+        {% for item in object_list %}
+        <div class="my-4 border-2 border-{{ item.priority }}-600 bg-{{ item.priority }}-400 rounded">
+            <h2 class="block md:flex text-2xl font-bold text-{{ item.priority }}-800 p-4">{{ item.title }}<span class="block text-sm ml-0 md:ml-4 mb-2 md:mb-0 text-gray-800">期限：{{ item.duedate }}</span></h2>
+            <div class="p-4 flex">
+                <a href="{% url 'detail' item.pk %}" class="py-2 px-6 text-base mr-4 text-white bg-blue-500 hover:bg-blue-600 block w-auto rounded">詳細を見る</a>
+                <a href="{% url 'update' item.pk %}" class="py-2 px-6 text-base mr-4 text-white bg-yellow-500 hover:bg-yellow-600 block w-auto rounded">変更する</a>
+                <a href="{% url 'delete' item.pk %}" class="py-2 px-6 text-base mr-4 text-white bg-red-500 hover:bg-red-600 block w-auto rounded">削除する</a>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
     {% endblock content %}
   
     <footer class="footer w-full h-20 bg-orange-500"></footer>
